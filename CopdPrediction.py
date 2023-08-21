@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import  pickle
 import random
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from constants import *
 
 
