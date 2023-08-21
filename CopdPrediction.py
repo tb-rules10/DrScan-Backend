@@ -58,6 +58,7 @@ def preprocessData(data):
     
 def add_data_to_excel(data_dict):
     print("*******************************")
+    data_dict.pop('Cat Values')
     print(data_dict)
     try:
         # Read the existing Excel file (if it exists)

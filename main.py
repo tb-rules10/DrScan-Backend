@@ -16,11 +16,9 @@ def read_root():
 @app.post("/api/copdPrediction")
 async def predict_Emotion(req: Request):
     data:PatientModel = json.loads(await req.body())
-    # print(data)
+    print(data) 
     # print(predictGoldGrade(data))
     data['Gold Grade'] = predictGoldGrade(data)
-    # data['Gold Grade'] = random.randint(1, 4)
-    # print(data['Gold Grade'])
     return { "status": True, "data": data }
 
 @app.get("/api/fetchData")
