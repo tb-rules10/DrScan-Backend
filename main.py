@@ -16,6 +16,7 @@ def read_root():
 @app.post("/api/copdPrediction")
 async def predict_Emotion(req: Request):
     data:PatientModel = json.loads(await req.body())
+    print("--> New Patient Added")
     print(data) 
     # print(predictGoldGrade(data))
     data['Gold Grade'] = predictGoldGrade(data)
@@ -24,10 +25,11 @@ async def predict_Emotion(req: Request):
 @app.get("/api/fetchData")
 async def download_file():
     file_path = "data_output.xlsx" 
-
     if os.path.exists(file_path):
+        print("--> Data Download Req Successful")
         return FileResponse(file_path, filename="patient_data.xlsx")
     else:
+        print("--> Data Download Req Failed")
         return {"error": "File not found"}
 
 
