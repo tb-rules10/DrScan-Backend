@@ -18,3 +18,4 @@ threadpoolctl
 typing_extensions
 tzdata
 uvicorn
+openpyxl
