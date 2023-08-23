@@ -12,16 +12,18 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-
+# Gold Grade prediction route
 @app.post("/api/copdPrediction")
 async def predict_Emotion(req: Request):
+    # Store data as per our model
     data:PatientModel = json.loads(await req.body())
     print("--> New Patient Added")
     print(data) 
-    # print(predictGoldGrade(data))
+    # Function to predict gold grade
     data['Gold Grade'] = predictGoldGrade(data)
     return { "status": True, "data": data }
 
+# Dataset download route
 @app.get("/api/fetchData")
 async def download_file():
     file_path = "data_output.xlsx" 

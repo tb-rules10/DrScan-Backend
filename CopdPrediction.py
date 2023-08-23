@@ -18,11 +18,13 @@ with open('scaler.pkl', 'rb') as scaler_file:
 
 
 def predictGoldGrade(data):
+    # Scale the data
     X_scaled = preprocessData(data)
+    # Use model (pkl file) to predict gold grade
     prediction = int(classifier.predict(X_scaled)[0])
     data['Gold Grade'] = prediction
+    # Add data to our database (excelsheet)
     add_data_to_excel(data)
-    # print(prediction)
     return prediction
 
 def map_categorical_values(data, mapping_dict):
@@ -38,6 +40,7 @@ def array_to_dataframe(input_array):
     return data_df
 
 def preprocessData(data):
+    # Create an array of required data
     patientData = [
         data['SHORTNESS OF BREATH'].upper(),
         data['EXPECTORATION'].upper(),
@@ -50,6 +53,7 @@ def preprocessData(data):
         data['(FEV1/FVC POST BD ) L/SEC'],
     ]
     df = array_to_dataframe(patientData)
+    # Map the data accoding to training data
     X = map_categorical_values(df, categorical_mapping)
     X_scaled = scaler.transform(X)
     return X_scaled
