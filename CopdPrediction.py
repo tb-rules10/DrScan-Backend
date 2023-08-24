@@ -60,7 +60,6 @@ def preprocessData(data):
 
     
 def add_data_to_excel(data_dict):
-    print("*******************************")
     data_dict.pop('Cat Values')
     # print(data_dict)
     try:
@@ -79,28 +78,7 @@ def add_data_to_excel(data_dict):
         # Write the combined DataFrame to the Excel file
         combined_df.to_excel(output_file, index=False)
 
-        print(f'Data added and written to {output_file}')
+        print(f'--> Data added and written to {output_file}')
+        print("************************************");
     except Exception as e:
         print(f'Error: {e}')
-
-
-# new_data = {
-#     'Name': ['New Person'],
-#     'AGE': [30],
-#     'GENDER': ['Female'],
-#     'WEIGHT IN KGS': [65.0],
-#     'HEIGHT IN CM': [160.0],
-#     'SHORTNESS OF BREATH': ['No'],
-#     'EXPECTORATION': ['No'],
-#     'DIABETES': ['No'],
-#     'TYPE OF SMOKER': ['Non-Smoker'],
-#     'CIGARETTE/BIDI/GANJA': ['NONE'],
-#     'ALCOHOL USE': ['No'],
-#     'mMRC GRADE': [1],
-#     '(FEV1 PRE BD) %PRED': [90.0],
-#     '(FEV1/FVC POST BD ) L/SEC': [75.0],
-#     'Gold Grade': [1]
-# }
-
-# # Call the function with the corrected example data
-# add_data_to_excel(new_data)

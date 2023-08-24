@@ -15,6 +15,7 @@ def read_root():
 # Gold Grade prediction route
 @app.post("/api/copdPrediction")
 async def predict_Emotion(req: Request):
+    print("************************************");
     # Store data as per our model
     data:PatientModel = json.loads(await req.body())
     print("--> New Patient Added")
